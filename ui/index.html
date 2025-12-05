@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TripCompass SF - Plan Your Perfect SF Trip</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">🧭</span>
+                <span class="logo-text">TripCompass SF</span>
+            </div>
+            <nav class="nav">
+                <button class="nav-btn active" data-view="itinerary">Itinerary</button>
+                <button class="nav-btn hidden" data-view="summary" id="summary-nav-btn">Summary</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Profile Setup Section (Initially Visible) -->
+        <section id="profile-section" class="profile-section">
+            <div class="container">
+                <div class="profile-card">
+                    <h1>Plan Your Perfect SF Trip</h1>
+                    <p class="subtitle">Tell us about your preferences and we'll create a personalized itinerary</p>
+                    
+                    <form id="profile-form" class="profile-form">
+                        <!-- Trip Details -->
+                        <div class="form-section">
+                            <h2>Trip Details</h2>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="destination">Destination</label>
+                                    <input type="text" id="destination" value="San Francisco" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="days">Trip Duration</label>
+                                    <div class="slider-container">
+                                        <input type="range" id="days" min="1" max="7" value="3" class="slider">
+                                        <span class="slider-value" id="days-value">3 days</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="budget">Total Budget ($)</label>
+                                    <input type="number" id="budget" min="100" max="5000" value="500" step="50">
+                                    <div class="budget-preview">
+                                        Daily budget: $<span id="daily-budget">167</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Travel Style -->
+                        <div class="form-section">
+                            <h2>Travel Style</h2>
+                            <div class="pace-selector">
+                                <label class="pace-option">
+                                    <input type="radio" name="pace" value="slow" checked>
+                                    <div class="pace-card">
+                                        <span class="pace-icon">🐢</span>
+                                        <span class="pace-name">Slow</span>
+                                        <span class="pace-desc">Take it slow, Enjoy your time</span>
+                                    </div>
+                                </label>
+                                <label class="pace-option">
+                                    <input type="radio" name="pace" value="moderate">
+                                    <div class="pace-card">
+                                        <span class="pace-icon">🚶</span>
+                                        <span class="pace-name">Moderate</span>
+                                        <span class="pace-desc">Balanced pace, mix of activities</span>
+                                    </div>
+                                </label>
+                                <label class="pace-option">
+                                    <input type="radio" name="pace" value="fast">
+                                    <div class="pace-card">
+                                        <span class="pace-icon">🏃</span>
+                                        <span class="pace-name">Fast</span>
+                                        <span class="pace-desc">Pack in as much as possible</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Interests -->
+                        <div class="form-section">
+                            <h2>Interests</h2>
+                            <p class="section-desc">Rate your interest level (0 = not interested, 1 = very interested)</p>
+                            <div class="interests-grid">
+                                <div class="interest-item">
+                                    <label for="interest-food">🍽️ Food & Dining</label>
+                                    <div class="slider-container">
+                                        <input type="range" id="interest-food" min="0" max="1" value="0.7" step="0.1" class="slider">
+                                        <span class="slider-value" id="interest-food-value">0.7</span>
+                                    </div>
+                                </div>
+                                <div class="interest-item">
+                                    <label for="interest-museums">🏛️ Museums & Culture</label>
+                                    <div class="slider-container">
+                                        <input type="range" id="interest-museums" min="0" max="1" value="0.8" step="0.1" class="slider">
+                                        <span class="slider-value" id="interest-museums-value">0.8</span>
+                                    </div>
+                                </div>
+                                <div class="interest-item">
+                                    <label for="interest-outdoors">🌳 Outdoors & Parks</label>
+                                    <div class="slider-container">
+                                        <input type="range" id="interest-outdoors" min="0" max="1" value="0.6" step="0.1" class="slider">
+                                        <span class="slider-value" id="interest-outdoors-value">0.6</span>
+                                    </div>
+                                </div>
+                                <div class="interest-item">
+                                    <label for="interest-shopping">🛍️ Shopping</label>
+                                    <div class="slider-container">
+                                        <input type="range" id="interest-shopping" min="0" max="1" value="0.4" step="0.1" class="slider">
+                                        <span class="slider-value" id="interest-shopping-value">0.4</span>
+                                    </div>
+                                </div>
+                                <div class="interest-item">
+                                    <label for="interest-culture">🎭 Arts & Culture</label>
+                                    <div class="slider-container">
+                                        <input type="range" id="interest-culture" min="0" max="1" value="0.5" step="0.1" class="slider">
+                                        <span class="slider-value" id="interest-culture-value">0.5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large">
+                            Generate Itinerary
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Loading Section (Hidden Initially) -->
+        <section id="loading-section" class="loading-section hidden">
+            <div class="container">
+                <div class="loading-card">
+                    <div class="spinner"></div>
+                    <h2>Creating Your Perfect Itinerary</h2>
+                    <div class="loading-steps">
+                        <div class="loading-step active">
+                            <span class="step-icon">✓</span>
+                            <span>Analyzing your preferences...</span>
+                        </div>
+                        <div class="loading-step">
+                            <span class="step-icon">⏳</span>
+                            <span>Scoring 2,246+ activities...</span>
+                        </div>
+                        <div class="loading-step">
+                            <span class="step-icon">⏳</span>
+                            <span>Optimizing your route...</span>
+                        </div>
+                        <div class="loading-step">
+                            <span class="step-icon">⏳</span>
+                            <span>Finalizing your itinerary...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Itinerary Section (Hidden Initially) -->
+        <section id="itinerary-section" class="itinerary-section hidden">
+            <div class="container">
+                <!-- Trip Overview -->
+                <div class="trip-overview">
+                    <div class="overview-card">
+                        <h2>Your Trip Overview</h2>
+                        <div class="overview-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Total Cost</span>
+                                <span class="stat-value" id="total-cost">$0.00</span>
+                                <span class="stat-sublabel" id="total-budget-label">of $0.00 budget</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Days</span>
+                                <span class="stat-value" id="total-days">0</span>
+                                <span class="stat-sublabel">Planned</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Activities</span>
+                                <span class="stat-value" id="total-activities">0</span>
+                                <span class="stat-sublabel">Scheduled</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day Tabs -->
+                <div class="day-tabs" id="day-tabs">
+                    <!-- Day tabs will be dynamically generated -->
+                </div>
+
+                <!-- Day Summary -->
+                <div class="day-summary" id="day-summary">
+                    <div class="summary-card">
+                        <div class="summary-item">
+                            <span class="summary-label">Activity Time</span>
+                            <span class="summary-value">10.5 hours</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Transit Time</span>
+                            <span class="summary-value">64 min</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Daily Cost</span>
+                            <span class="summary-value">$53.00 / $167.00</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Status</span>
+                            <span class="summary-value status-feasible">✓ Feasible</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline -->
+                <div class="timeline-container">
+                    <div class="timeline" id="timeline">
+                        <!-- Activities will be inserted here by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="btn btn-secondary" id="export-btn">Export PDF</button>
+                    <button class="btn btn-primary" id="new-trip-btn">Plan New Trip</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Summary View (Hidden Initially) -->
+        <section id="summary-section" class="summary-section hidden">
+            <div class="container">
+                <div class="summary-dashboard">
+                    <h2>Trip Summary</h2>
+                    <div id="summary-content">
+                        <!-- Dynamic summary content will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Activity Detail Modal -->
+    <div id="activity-modal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div id="activity-details">
+                <!-- Activity details will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

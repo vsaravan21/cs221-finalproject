@@ -1,0 +1,25 @@
+{
+  "record_count": 2261,
+  "category_counts": {
+    "restaurant": 1068,
+    "transport": 817,
+    "park": 252,
+    "airport": 81,
+    "nightlife": 17,
+    "landmark": 12,
+    "museum": 10,
+    "shopping": 4
+  },
+  "cost_range": [
+    0.0,
+    50.0
+  ],
+  "popularity_range": [
+    3.0,
+    4.960459450002746
+  ],
+  "issues": [
+    "longitude outside expected range",
+    "open_end earlier than open_start detected"
+  ]
+}

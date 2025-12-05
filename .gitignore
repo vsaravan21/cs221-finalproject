@@ -1,0 +1,66 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+**/.DS_Store
+Thumbs.db
+
+# Large raw data files (exclude - these are source data)
+tripcompass/data/pois_sf.csv
+tripcompass/data/Recreation_and_Parks_Properties_*.csv
+tripcompass/data/Registered_Business_Locations_*.csv
+tripcompass/data/Muni_Stops_*.csv
+tripcompass/data/City_Facilities_*.csv
+tripcompass/data/user_poi_ratings.csv
+
+# Keep essential runtime files (these are needed):
+# tripcompass/data/pois_sf_enriched.csv - REQUIRED at runtime
+# tripcompass/data/user_profiles.csv - REQUIRED at runtime
+# tripcompass/main_nn_model.npz - REQUIRED at runtime
+# tripcompass/main_scaler.joblib - REQUIRED at runtime
+
+# Old/unused model files (exclude to save space)
+tripcompass/main_rf_model.joblib
+tripcompass/main_gb_model.joblib
+
+# Keep baseline models (optional, but small):
+# tripcompass/baseline_linear_model.joblib
+# tripcompass/baseline_scaler.joblib
+
+# Reports (generated files, can be excluded)
+reports/*.json
+!reports/.gitkeep
+
+# Data processing outputs
+tripcompass/data/processed/
+tripcompass/data/data_sources.json
+
+# User-generated files
+user_poi_ratings.csv
+user_profiles.csv
+
+# Logs
+*.log
+
