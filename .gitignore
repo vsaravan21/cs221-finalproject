@@ -57,9 +57,10 @@ reports/*.json
 tripcompass/data/processed/
 tripcompass/data/data_sources.json
 
-# User-generated files
+# User-generated files (root directory duplicates)
 user_poi_ratings.csv
 user_profiles.csv
+tripcompass/user_poi_ratings.csv
 
 # Logs
 *.log
