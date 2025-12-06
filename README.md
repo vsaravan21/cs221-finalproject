@@ -19,10 +19,8 @@ After deleting the folder:
 
 1. Download `data.zip` (provided on Gradescope).
 2. Unzip it.
-3. Drag the entire unzipped contents into:
-
-```text
-tripcompass/data/
+3. Drag the entire unzipped contents into: tripcompass/data/
+4. 
 ### Building the POI Catalog
 
 1. **Download additional datasets (optional):**
