@@ -20,16 +20,9 @@ After deleting the folder:
 1. Download `data.zip` (provided on Gradescope).
 2. Unzip it.
 3. Drag the entire unzipped contents into: tripcompass/data/
-4. 
-### Building the POI Catalog
+   
 
-1. **Download additional datasets (optional):**
-   ```bash
-   python3 -m tripcompass.data.download_additional_sources
-   ```
-   This will download datasets from SF Open Data Portal (e.g., film locations).
-
-2. **Build the enriched POI catalog:**
+1. **Build the enriched POI catalog:**
    ```bash
    python3 -m tripcompass.data.build_pois
    ```
@@ -47,7 +40,7 @@ After deleting the folder:
    - `reports/data_reports/data_quality.json` - Validation report
    - `tripcompass/data/data_sources.json` - Data source manifest
 
-3. **Inspect validation report** to confirm there are no blocking issues before training models.
+2. **Inspect validation report** to confirm there are no blocking issues before training models.
 
 ## UI Prototype
 
