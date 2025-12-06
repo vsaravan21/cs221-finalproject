@@ -8,6 +8,21 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
+## Data Pipeline
+
+### Important Note About Data
+
+Please delete the existing `tripcompass/data/` folder in the repository before running the pipeline.  
+The data files were too large to store on GitHub, which caused incomplete and duplicate data in earlier commits.
+
+After deleting the folder:
+
+1. Download `data.zip` (provided on Gradescope).
+2. Unzip it.
+3. Drag the entire unzipped contents into:
+
+```text
+tripcompass/data/
 ### Building the POI Catalog
 
 1. **Download additional datasets (optional):**
